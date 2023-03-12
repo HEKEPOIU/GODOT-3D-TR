@@ -8,9 +8,7 @@ func _ready() -> void:
 	randomize()  #隨機其他隨機碼的順序，不做的話每次生成位置都會依樣。
 	$UserInterface/Retry.hide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
 
 
 func _on_mob_timer_timeout() -> void:

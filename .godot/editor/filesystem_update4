@@ -1,9 +1,6 @@
+res://Scene/Mob.tscn
+res://Script/Mob.gd
+res://Script/ScoreLabel.gd
 res://Scene/Main.tscn
 res://Scene/Player.tscn
 res://Script/Player.gd
-res://Script/Mob.gd
-res://Scene/Mob.tscn
-res://Script/Main.gd
-res://ScoreLabel.gd
-res://Scene/MusicPlayer.tscn
-res://Script/ScoreLabel.gd

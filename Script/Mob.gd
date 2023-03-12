@@ -5,10 +5,8 @@ extends CharacterBody3D
 @export var max_speed : float = 18
 
 signal squashed
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
+var is_dead:=false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -19,7 +17,7 @@ func initialize(start_position, player_position):
 	look_at_from_position(start_position,player_position,Vector3.UP) #生成時面相玩家
 	rotate_y(randf_range(-PI/4,PI/4)) #稍微隨機一點旋轉數值，穰他不要完全向玩家走。
 	
-	var random_speed = randi_range(min_speed,max_speed)
+	var random_speed : int = randi_range(int(min_speed),int(max_speed))
 	
 	velocity = Vector3.FORWARD * random_speed  #向z-1方向走。然後乘以隨機移動速度
 	
@@ -30,6 +28,8 @@ func initialize(start_position, player_position):
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	queue_free()
 
-func squash():
-	squashed.emit()
-	queue_free()
+func squash() -> void:
+	if not is_dead:
+		is_dead = true
+		squashed.emit()
+		queue_free()
